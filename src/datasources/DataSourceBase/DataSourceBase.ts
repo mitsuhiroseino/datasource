@@ -1,4 +1,4 @@
-import EventedBase from '@visue/core/base/EventedBase';
+import EventedBase from '@visue/core/EventedBase';
 import { Reader, ReaderFactory } from '../../readers';
 import { Writer, WriterFactory } from '../../writers';
 import { CreateOptions, DataSource, DeleteOptions, ReadOptions, UpdateOptions } from '../types';

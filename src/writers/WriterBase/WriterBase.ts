@@ -1,4 +1,4 @@
-import ConfigurableBase from '@visue/core/base/ConfigurableBase';
+import ConfigurableBase from '@visue/core/ConfigurableBase';
 import asArray from '@visue/utils/array/asArray';
 import assignIdentifier from '@visue/utils/identifier/assignIdentifier';
 import { Writer } from '../types';
