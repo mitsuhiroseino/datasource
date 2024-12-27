@@ -1,7 +1,7 @@
 /**
  * 種別
  */
-export const DATA_SOURCE_TYPES = {
+const DATA_SOURCE_TYPES = {
   /**
    * 任意のデータソース
    */
@@ -11,4 +11,5 @@ export const DATA_SOURCE_TYPES = {
    * メモリー上のデータソース
    */
   MEMORY: 'memory',
-};
+} as const;
+export default DATA_SOURCE_TYPES;

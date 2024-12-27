@@ -2,7 +2,7 @@ import EasyFactory from '@visue/factory/easy/EasyFactory';
 import ArrayReader from './ArrayReader';
 import JsonReader from './JsonReader';
 import ObjectReader from './ObjectReader';
-import { READER_TYPES } from './constants';
+import READER_TYPES from './READER_TYPES';
 import { Reader } from './types';
 
 const ReaderFactory = new EasyFactory<Reader>({

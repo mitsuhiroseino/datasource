@@ -1,7 +1,7 @@
 import EasyFactory from '@visue/factory/easy/EasyFactory';
 import AnyDataSource from './AnyDataSource';
+import DATA_SOURCE_TYPES from './DATA_SOURCE_TYPES';
 import MemoryDataSource from './MemoryDataSource';
-import { DATA_SOURCE_TYPES } from './constants';
 import { DataSource } from './types';
 
 const DataSourceFactory = new EasyFactory<DataSource>({

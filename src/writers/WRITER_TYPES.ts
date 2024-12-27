@@ -1,7 +1,7 @@
 /**
  * 種別
  */
-export const WRITER_TYPES = {
+const WRITER_TYPES = {
   /**
    * 配列のライター
    */
@@ -16,4 +16,5 @@ export const WRITER_TYPES = {
    * オブジェクトのライター
    */
   OBJECT: 'object',
-};
+} as const;
+export default WRITER_TYPES;

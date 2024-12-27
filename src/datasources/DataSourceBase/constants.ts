@@ -1,10 +1,10 @@
-import { EventedEvents } from '@visue/core/EventedBase';
+import { EVENTED_EVENTS } from '@visue/core/EventedBase';
 
 /**
  * イベント
  */
-export const DataSourceEventsBase = {
-  ...EventedEvents,
+export const DATA_SOURCE_EVENTS_BASE = {
+  ...EVENTED_EVENTS,
   beforeread: 'beforeread',
   read: 'read',
   afterread: 'afterread',

@@ -3,16 +3,16 @@ import { EventInfo } from '@visue/core/events';
 import { Reader, ReaderConfig } from '../../readers';
 import { Writer, WriterConfig } from '../../writers';
 import { CreateOptions, DataSourceConfig, DeleteOptions, ReadOptions, UpdateOptions } from '../types';
-import { DataSourceEventsBase } from './constants';
+import { DATA_SOURCE_EVENTS_BASE } from './constants';
 
 /**
  * イベントハンドラー
  */
 export type DataSourceEventHandlersBase<D = any> = EventedEventHandlers & {
-  [DataSourceEventsBase.beforeread]?: (event: EventInfo<any>) => void;
-  [DataSourceEventsBase.read]?: (event: EventInfo<any>) => void;
-  [DataSourceEventsBase.afterread]?: (event: EventInfo<{ data: D }>) => void;
-  [DataSourceEventsBase.readerror]?: (event: EventInfo<{ error: any }>) => void;
+  [DATA_SOURCE_EVENTS_BASE.beforeread]?: (event: EventInfo<any>) => void;
+  [DATA_SOURCE_EVENTS_BASE.read]?: (event: EventInfo<any>) => void;
+  [DATA_SOURCE_EVENTS_BASE.afterread]?: (event: EventInfo<{ data: D }>) => void;
+  [DATA_SOURCE_EVENTS_BASE.readerror]?: (event: EventInfo<{ error: any }>) => void;
 };
 
 /**

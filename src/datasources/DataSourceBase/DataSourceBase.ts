@@ -2,7 +2,7 @@ import EventedBase from '@visue/core/EventedBase';
 import { Reader, ReaderFactory } from '../../readers';
 import { Writer, WriterFactory } from '../../writers';
 import { CreateOptions, DataSource, DeleteOptions, ReadOptions, UpdateOptions } from '../types';
-import { DataSourceEventsBase } from './constants';
+import { DATA_SOURCE_EVENTS_BASE } from './constants';
 import { DataSourceConfigBase, DataSourceEventHandlersBase } from './types';
 
 /**
@@ -56,7 +56,7 @@ abstract class DataSourceBase<
   create<O extends CreateOptions = CreateOptions>(outData: D, options?: O): Promise<any> {
     const me = this,
       config = me._withConfig(options);
-    if (me._events.fire(DataSourceEventsBase.beforecreate, { data: outData, config }) === false) {
+    if (me._events.fire(DATA_SOURCE_EVENTS_BASE.beforecreate, { data: outData, config }) === false) {
       return Promise.resolve(null);
     }
     let data;
@@ -68,15 +68,15 @@ abstract class DataSourceBase<
       // 変換なし
       data = outData;
     }
-    me._events.fire(DataSourceEventsBase.create, { data, config });
+    me._events.fire(DATA_SOURCE_EVENTS_BASE.create, { data, config });
     return me
       ._create(data, config)
       .then((result: any) => {
-        me._events.fire(DataSourceEventsBase.aftercreate, { result, config });
+        me._events.fire(DATA_SOURCE_EVENTS_BASE.aftercreate, { result, config });
         return result;
       })
       .catch((error) => {
-        me._events.fire(DataSourceEventsBase.createerror, { error, config });
+        me._events.fire(DATA_SOURCE_EVENTS_BASE.createerror, { error, config });
         return error;
       });
   }
@@ -94,10 +94,10 @@ abstract class DataSourceBase<
   read<O extends ReadOptions = ReadOptions>(options?: O): Promise<D | null> {
     const me = this,
       config = me._withConfig(options);
-    if (me._events.fire(DataSourceEventsBase.beforeread, { config }) === false) {
+    if (me._events.fire(DATA_SOURCE_EVENTS_BASE.beforeread, { config }) === false) {
       return Promise.resolve(null);
     }
-    me._events.fire(DataSourceEventsBase.read, { config });
+    me._events.fire(DATA_SOURCE_EVENTS_BASE.read, { config });
     return me
       ._read(config)
       .then((inData: any) => {
@@ -110,11 +110,11 @@ abstract class DataSourceBase<
           // 変換なし
           data = inData;
         }
-        me._events.fire(DataSourceEventsBase.afterread, { data, config });
+        me._events.fire(DATA_SOURCE_EVENTS_BASE.afterread, { data, config });
         return data;
       })
       .catch((error) => {
-        me._events.fire(DataSourceEventsBase.readerror, { error, config });
+        me._events.fire(DATA_SOURCE_EVENTS_BASE.readerror, { error, config });
         return error;
       });
   }
@@ -132,7 +132,7 @@ abstract class DataSourceBase<
   update<O extends UpdateOptions = UpdateOptions>(outData: D, options?: O): Promise<any> {
     const me = this,
       config = me._withConfig(options);
-    if (me._events.fire(DataSourceEventsBase.beforeupdate, { data: outData, config }) === false) {
+    if (me._events.fire(DATA_SOURCE_EVENTS_BASE.beforeupdate, { data: outData, config }) === false) {
       return Promise.resolve(null);
     }
     let data;
@@ -144,15 +144,15 @@ abstract class DataSourceBase<
       // 変換なし
       data = outData;
     }
-    me._events.fire(DataSourceEventsBase.update, { data, config });
+    me._events.fire(DATA_SOURCE_EVENTS_BASE.update, { data, config });
     return me
       ._create(data, config)
       .then((result: any) => {
-        me._events.fire(DataSourceEventsBase.afterupdate, { result, config });
+        me._events.fire(DATA_SOURCE_EVENTS_BASE.afterupdate, { result, config });
         return result;
       })
       .catch((error) => {
-        me._events.fire(DataSourceEventsBase.updateerror, { error, config });
+        me._events.fire(DATA_SOURCE_EVENTS_BASE.updateerror, { error, config });
         return error;
       });
   }
@@ -170,18 +170,18 @@ abstract class DataSourceBase<
   delete<O extends DeleteOptions = DeleteOptions>(options?: O): Promise<any> {
     const me = this,
       config = me._withConfig(options);
-    if (me._events.fire(DataSourceEventsBase.beforedelete, { config }) === false) {
+    if (me._events.fire(DATA_SOURCE_EVENTS_BASE.beforedelete, { config }) === false) {
       return Promise.resolve(null);
     }
-    me._events.fire(DataSourceEventsBase.delete, { config });
+    me._events.fire(DATA_SOURCE_EVENTS_BASE.delete, { config });
     return me
       ._delete(config)
       .then((result: any) => {
-        me._events.fire(DataSourceEventsBase.afterdelete, { result, config });
+        me._events.fire(DATA_SOURCE_EVENTS_BASE.afterdelete, { result, config });
         return result;
       })
       .catch((error) => {
-        me._events.fire(DataSourceEventsBase.deleteerror, { error, config });
+        me._events.fire(DATA_SOURCE_EVENTS_BASE.deleteerror, { error, config });
         return error;
       });
   }

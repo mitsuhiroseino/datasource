@@ -1,3 +1,3 @@
+export { default as DATA_SOURCE_TYPES } from './DATA_SOURCE_TYPES';
 export { default as DataSourceFactory } from './DataSourceFactory';
-export * from './constants';
 export type * from './types';

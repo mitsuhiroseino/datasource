@@ -2,7 +2,7 @@ import EasyFactory from '@visue/factory/easy/EasyFactory';
 import ArrayWriter from './ArrayWriter';
 import JsonWriter from './JsonWriter';
 import ObjectWriter from './ObjectWriter';
-import { WRITER_TYPES } from './constants';
+import WRITER_TYPES from './WRITER_TYPES';
 import { Writer } from './types';
 
 const WriterFactory = new EasyFactory<Writer>({

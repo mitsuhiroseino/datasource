@@ -1,7 +1,7 @@
 /**
  * 種別
  */
-export const READER_TYPES = {
+const READER_TYPES = {
   /**
    * 配列のリーダー
    */
@@ -16,4 +16,5 @@ export const READER_TYPES = {
    * オブジェクトのリーダー
    */
   OBJECT: 'object',
-};
+} as const;
+export default READER_TYPES;
